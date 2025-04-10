@@ -1,4 +1,4 @@
-import { Uuid } from "@core/@shared/domain/value-objects/uuid/uuid.vo";
+import { Uuid } from "src/core/@shared/domain/value-objects/uuid/uuid.vo";
 import { Transfer } from "../transfer.entity";
 
 
@@ -64,9 +64,9 @@ describe('Transfer unit test', () => {
       test('should an invalid transfer with fromId, toId, amount and balance property', () => {
         expect(() =>
           Transfer.create({
-            fromId: null,
-            toId: null,
-            amount: null,
+            fromId: null as any,
+            toId: null as any,
+            amount: null as any,
           })
         ).containsErrorMessages({
           fromId: ['fromId must be a string', 'fromId should not be empty'],

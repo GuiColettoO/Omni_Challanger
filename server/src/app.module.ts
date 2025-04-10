@@ -1,23 +1,15 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { UsersModule } from './users/users.module';
-import { TransfersModule } from './transfers/transfers.module';
-import { SequelizeModule } from '@nestjs/sequelize';
-import { UserModel } from './core/user/infra/db/sequelize/user.model';
-import { TransferModel } from './core/transfer/infra/db/sequelize/transfer.model';
+import { UsersModule } from './nest-modules/users-module/users.module';
+import { TransfersModule } from './nest-modules/transfers-module/transfers.module';
+import { ConfigModule } from './nest-modules/config-module/config.module';
+import { DatabaseModule } from './nest-modules/database-module/database.module';
 
 @Module({
   imports: [
-    SequelizeModule.forRoot({
-      dialect: 'sqlite',
-      host: ':memory',
-      logging: false,
-      models: [UserModel, TransferModel]
-    }),
-
-    UsersModule, TransfersModule],
-  controllers: [AppController],
-  providers: [AppService],
+    ConfigModule.forRoot(),
+    DatabaseModule,
+    UsersModule,
+    TransfersModule,
+  ],
 })
 export class AppModule {}

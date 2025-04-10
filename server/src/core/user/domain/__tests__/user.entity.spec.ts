@@ -66,10 +66,10 @@ describe('User unit test', () => {
 
         expect(() =>
           User.create({
-            username: null,
-            password: null,
-            birthdate: null,
-            balance: null
+            username: null as any,
+            password: null as any,
+            birthdate: null as any,
+            balance: null as any
           })
         ).containsErrorMessages({
           username: [

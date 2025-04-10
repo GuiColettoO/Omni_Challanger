@@ -1,9 +1,10 @@
 import { Sequelize } from "sequelize-typescript";
 import { TransferSequelizeRepository } from "../transfer.repository";
 import { TransferModel } from "../transfer.model";
-import { UserModel } from "@core/user/infra/db/sequelize/user.model";
-import { Transfer } from "@core/transfer/domain/transfer.entity";
-import { Uuid } from "@core/@shared/domain/value-objects/uuid/uuid.vo";
+import { UserModel } from "src/core/user/infra/db/sequelize/user.model";
+import { Transfer } from "src/core/transfer/domain/transfer.entity";
+import { Uuid } from "src/core/@shared/domain/value-objects/uuid/uuid.vo";
+
 
 
 describe('TransferSequelizeRepository Integration Tests', () => {
@@ -53,7 +54,7 @@ describe('TransferSequelizeRepository Integration Tests', () => {
 
     await repository.insert(user);
     let entity = await repository.findById(user.transfer_id);
-    expect(entity.toJSON()).toStrictEqual(entity.toJSON());
+    expect(entity!.toJSON()).toStrictEqual(entity!.toJSON());
   });
 
   test('should finds a entity by id', async () => {
@@ -70,7 +71,7 @@ describe('TransferSequelizeRepository Integration Tests', () => {
     await repository.insert(entity);
 
     entityFound = await repository.findById(entity.transfer_id);
-    expect(entity.toJSON()).toStrictEqual(entityFound.toJSON());
+    expect(entity.toJSON()).toStrictEqual(entityFound!.toJSON());
   });
 
   test('should return all users', async () => {

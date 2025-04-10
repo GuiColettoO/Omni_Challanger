@@ -32,8 +32,8 @@ describe('UserSequelizeRepository Integration Tests', () => {
     });
 
     await repository.insert(user);
-    let entity = await repository.findById(user.user_id);
-    expect(entity.toJSON()).toStrictEqual(entity.toJSON());
+    let entity = await repository.findById(user.user_id!);
+    expect(entity!.toJSON()).toStrictEqual(entity!.toJSON());
   });
 
   test('should finds a entity by id', async () => {
@@ -49,8 +49,8 @@ describe('UserSequelizeRepository Integration Tests', () => {
 
     await repository.insert(entity);
 
-    entityFound = await repository.findById(entity.user_id);
-    expect(entity.toJSON()).toStrictEqual(entityFound.toJSON());
+    entityFound = await repository.findById(entity.user_id!);
+    expect(entity.toJSON()).toStrictEqual(entityFound!.toJSON());
   });
 
   test('should finds a entity by username', async () => {
@@ -67,7 +67,7 @@ describe('UserSequelizeRepository Integration Tests', () => {
     await repository.insert(entity);
 
     entityFound = await repository.findByUsername(entity.username);
-    expect(entity.toJSON()).toStrictEqual(entityFound.toJSON());
+    expect(entity.toJSON()).toStrictEqual(entityFound!.toJSON());
   });
 
   test('should return all users', async () => {

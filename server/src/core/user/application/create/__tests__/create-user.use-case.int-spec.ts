@@ -39,7 +39,7 @@ describe('CreateUserUseCase Integration Tests', () => {
     });
     let entity = await repository.findById(new Uuid(output.id));
     expect(output).toStrictEqual({
-      id: entity.user_id?.id,
+      id: entity!.user_id?.id,
     });
 
     output = await useCase.execute({
@@ -49,7 +49,7 @@ describe('CreateUserUseCase Integration Tests', () => {
     });
     entity = await repository.findById(new Uuid(output.id));
     expect(output).toStrictEqual({
-        id: entity.user_id?.id,
+        id: entity!.user_id?.id,
     });
   });
 });

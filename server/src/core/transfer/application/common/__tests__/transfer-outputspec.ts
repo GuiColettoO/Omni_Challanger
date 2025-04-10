@@ -1,4 +1,4 @@
-import { Transfer } from "@core/transfer/domain/transfer.entity";
+import { Transfer } from "src/core/transfer/domain/transfer.entity";
 import { TransferOutputMapper } from "../transfer-output";
 
 

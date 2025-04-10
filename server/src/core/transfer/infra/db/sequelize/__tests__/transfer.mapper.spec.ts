@@ -1,10 +1,10 @@
-import { UserModel } from '@core/user/infra/db/sequelize/user.model';
 import { Sequelize } from 'sequelize-typescript';
 import { TransferModel } from '../transfer.model';
 import { TransferModelMapper } from '../transfer.mapper';
-import { EntityValidationError } from '@core/@shared/domain/validators/validation.error';
-import { Transfer } from '@core/transfer/domain/transfer.entity';
-import { Uuid } from '@core/@shared/domain/value-objects/uuid/uuid.vo';
+import { UserModel } from 'src/core/user/infra/db/sequelize/user.model';
+import { EntityValidationError } from 'src/core/@shared/domain/validators/validation.error';
+import { Uuid } from 'src/core/@shared/domain/value-objects/uuid/uuid.vo';
+import { Transfer } from 'src/core/transfer/domain/transfer.entity';
 
 
 describe('TransferModelMapper Integration Tests', () => {
