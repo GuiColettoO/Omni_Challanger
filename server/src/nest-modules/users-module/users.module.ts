@@ -8,8 +8,9 @@ import { USER_PROVIDERS } from './users.providers';
 @Module({
   imports: [SequelizeModule.forFeature([UserModel, TransferModel])],
   controllers: [UsersController],
-  providers: [...Object.values(USER_PROVIDERS.REPOSITORIES), 
-    ...Object.values(USER_PROVIDERS.USE_CASES), 
+  providers: [
+    ...Object.values(USER_PROVIDERS.REPOSITORIES),
+    ...Object.values(USER_PROVIDERS.USE_CASES),
   ],
 })
 export class UsersModule {}

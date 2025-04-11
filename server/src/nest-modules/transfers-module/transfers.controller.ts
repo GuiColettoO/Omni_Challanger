@@ -1,30 +1,20 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { CreateTransferDto } from './dto/create-transfer.dto';
-import { UpdateTransferDto } from './dto/update-transfer.dto';
-import { TransferSequelizeRepository } from 'src/core/transfer/infra/db/sequelize/transfer.repository';
+import { Controller, Post, Body, UseGuards, Res, Inject } from '@nestjs/common';
+import {
+  CreateTransferInput,
+  CreateTransferUseCase,
+} from 'src/core/transfer/application/create/create-transfer.use-case';
+import { JwtAuthGuard } from '../jwt-module/jwt-auth.guard';
+import { Response } from 'express';
 
 @Controller('transfers')
 export class TransfersController {
+  @Inject(CreateTransferUseCase)
+  private createTransferUseCase: CreateTransferUseCase;
 
-  constructor(transferRepo: TransferSequelizeRepository) {}
-
+  @UseGuards(JwtAuthGuard)
   @Post()
-  create(@Body() createTransferDto: CreateTransferDto) {
-  }
-
-  @Get()
-  findAll() {
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateTransferDto: UpdateTransferDto) {
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
+  async create(@Body() data: CreateTransferInput, @Res() res: Response) {
+    await this.createTransferUseCase.execute(data);
+    return res.sendStatus(204);
   }
 }

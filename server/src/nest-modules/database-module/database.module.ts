@@ -32,6 +32,12 @@ const models = [UserModel, TransferModel];
             username: configService.get('DB_USERNAME'),
             password: configService.get('DB_PASSWORD'),
             models,
+            dialectOptions: {
+              ssl: {
+                require: true,
+                rejectUnauthorized: false,
+              },
+            },
             logging: configService.get('DB_LOGGING'),
             autoLoadModels: configService.get('DB_AUTO_LOAD_MODELS'),
           };

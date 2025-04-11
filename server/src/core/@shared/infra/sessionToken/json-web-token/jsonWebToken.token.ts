@@ -8,7 +8,7 @@ export class JsonWebToken implements SessionToken {
 
   async verify(token: string, secret: string): Promise<{ user_id: string }> {
     try {
-      const decoded = jwt.decode(token) as jwt.JwtPayload;
+      const decoded = jwt.verify(token, secret) as jwt.JwtPayload;
 
       return {
         user_id: decoded.id,

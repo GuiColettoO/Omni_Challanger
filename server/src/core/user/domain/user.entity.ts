@@ -37,7 +37,7 @@ export class User extends Entity {
     this.username = props.username;
     this.password = props.password;
     this.birthdate = props.birthdate;
-    this.balance = props.balance ?? '0';
+    this.balance = props.balance ?? '500';
     this.created_at = props.created_at ?? new Date();
   }
 

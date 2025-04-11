@@ -18,7 +18,7 @@ describe('User unit test', () => {
       expect(user.username).toBe('Guilherme Candidato');
       expect(user.password).toBe('GuilhermeCandidato');
       expect(user.birthdate).toBe('19/05/2000');
-      expect(user.balance).toBe('0');
+      expect(user.balance).toBe('500');
     });
   });
 
@@ -33,7 +33,7 @@ describe('User unit test', () => {
       expect(user.username).toBe('Guilherme Candidato');
       expect(user.password).toBe('GuilhermeCandidato');
       expect(user.birthdate).toBe('19/05/2000');
-      expect(user.balance).toBe('0');
+      expect(user.balance).toBe('500');
       expect(validateSpy).toHaveBeenCalledTimes(1);
     });
   });

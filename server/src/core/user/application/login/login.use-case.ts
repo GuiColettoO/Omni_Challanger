@@ -36,7 +36,7 @@ export class LoginUseCase implements IUseCase<LoginInput, LoginOutput> {
   }
 }
 
-type LoginInput = {
+export type LoginInput = {
   username: string;
   password: string;
 };

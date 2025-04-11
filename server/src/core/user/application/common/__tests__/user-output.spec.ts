@@ -18,7 +18,7 @@ describe('UserOutputMapper Unit Tests', () => {
       username: 'Guilherme Candidato',
       password: 'GuilhermeCandidato',
       birthdate: '19/05/2000',
-      balance: "0",
+      balance: "500",
       created_at: entity.created_at,
     });
   });

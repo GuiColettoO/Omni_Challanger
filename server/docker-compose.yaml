@@ -1,6 +1,7 @@
+version: '3'
 services:
-  db:
-    image: postgres:14
+  postgres:
+    image: postgres:latest
     restart: always
     environment:
       POSTGRES_USER: user
@@ -8,3 +9,8 @@ services:
       POSTGRES_DB: bank
     ports:
       - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
